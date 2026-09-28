@@ -7,36 +7,16 @@ const blacklistedDomains = {
 };
 
 const suspiciousKeywords = [
-  'free-robux',
-  'claim-prize',
-  'urgent-verification',
-  'verify-account',
-  'winner-2026',
-  'crypto-giveaway',
-  'secure-your-wallet',
-  'free-coin',
-  'giveaway',
-  'claim-reward',
-  'security-update',
-  'verify-your-account',
-  'bonus',
-  'reward',
-  'limited-offer',
-  'double-your-money',
-  'account-security',
-  'cashback',
-  'robux',
-  'altbot',
-  'win-prize',
-  'prize',
-  'claim',
-  'verify',
-  'wallet'
+  'free-robux', 'free-robux-generator', 'free-coin', 'claim-prize', 'claim-reward',
+  'urgent-verification', 'verify-account', 'verify-your-account', 'winner-2026',
+  'crypto-giveaway', 'secure-your-wallet', 'security-update', 'account-security',
+  'reward', 'bonus', 'cashback', 'giveaway', 'winner', 'prize', 'robux',
+  'verify', 'wallet', 'secure', 'security', 'claim', 'limited-offer', 'double-your-money'
 ];
 
 const suspiciousHostPatterns = [
   /free.*(robux|coin|gift|reward|bonus)/i,
-  /(giveaway|claim|winner|reward|verify|security|secure|wallet|cashback|promo|bonus|crypto)/i,
+  /(giveaway|winner|claim|reward|verify|security|secure|wallet|cashback|promo|bonus|crypto)/i,
   /(xyz|top|club|site|info|buzz|click|online|live|vip|ml|ga|tk|bid|loan)/i,
   /altbot|robux|prize|verify-account|security-update/i
 ];
@@ -62,8 +42,9 @@ function analyzeUrl(url) {
     const keywordMatch = suspiciousKeywords.some(keyword => fullPath.includes(keyword));
     const hostPatternMatch = suspiciousHostPatterns.some(pattern => pattern.test(hostname));
     const suspiciousTld = /\.(xyz|top|club|online|site|info|buzz|click|best|vip)$/i.test(hostname);
+    const suspiciousSegment = /(free|gift|reward|claim|verify|security|winner|bonus|cashback|robux)/i.test(hostname);
 
-    if (keywordMatch || hostPatternMatch || suspiciousTld) {
+    if (keywordMatch || hostPatternMatch || suspiciousTld || suspiciousSegment) {
       return {
         safe: false,
         label: 'Signalement de phishing',
@@ -106,8 +87,14 @@ function updateTabSecurity(tabId, url) {
 }
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.url) {
+  if (changeInfo.status === 'complete' && tab?.url) {
     updateTabSecurity(tabId, tab.url);
+  }
+});
+
+chrome.webNavigation?.onCompleted?.addListener((details) => {
+  if (details?.url) {
+    updateTabSecurity(details.tabId, details.url);
   }
 });
 

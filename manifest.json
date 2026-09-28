@@ -7,7 +7,17 @@
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "ScamRadar"
+    "default_title": "ScamRadar",
+    "default_icon": {
+      "16": "scamradar-icon-v2.svg",
+      "48": "scamradar-icon-v2.svg",
+      "128": "scamradar-icon-v2.svg"
+    }
+  },
+  "icons": {
+    "16": "scamradar-icon-v2.svg",
+    "48": "scamradar-icon-v2.svg",
+    "128": "scamradar-icon-v2.svg"
   },
   "background": {
     "service_worker": "background.js"

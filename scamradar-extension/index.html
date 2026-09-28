@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScamRadar | Protection anti-phishing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #070d17;
+        color: #e2e8f0;
+      }
+
+      .glow {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(circle at center, rgba(14, 165, 233, 0.18), transparent 45%);
+        filter: blur(50px);
+      }
+
+      .glass {
+        background: rgba(15, 23, 42, 0.72);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        backdrop-filter: blur(12px);
+      }
+
+      .text-gradient {
+        background: linear-gradient(135deg, #f8fafc 0%, #7dd3fc 50%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 20px 40px rgba(14, 165, 233, 0.25);
+      }
+    </style>
+  </head>
+  <body class="relative overflow-x-hidden selection:bg-sky-500 selection:text-white">
+    <div class="glow"></div>
+
+    <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-md">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div class="flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400">
+            <i data-lucide="shield-alert" class="h-6 w-6"></i>
+          </div>
+          <div>
+            <div class="text-xl font-black tracking-[0.2em] text-white">SCAM<span class="text-sky-400">RADAR</span></div>
+          </div>
+        </div>
+
+        <nav class="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+          <a href="#features" class="hover:text-sky-400">Fonctionnalités</a>
+          <a href="#stats" class="hover:text-sky-400">Performance</a>
+          <a href="#how" class="hover:text-sky-400">Comment ça marche</a>
+          <a href="#faq" class="hover:text-sky-400">FAQ</a>
+        </nav>
+
+        <a href="#download" class="btn-primary rounded-xl px-5 py-2.5 text-sm font-semibold text-white">Installer</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative mx-auto max-w-7xl px-6 pb-20 pt-16 md:pt-24">
+        <div class="mb-8 inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-300">
+          <i data-lucide="zap" class="h-4 w-4"></i>
+          Défense proactive pour Chrome & Edge
+        </div>
+
+        <div class="mx-auto max-w-4xl text-center">
+          <h1 class="text-4xl font-black leading-tight text-white md:text-7xl">
+            Bloquez les arnaques web <span class="text-gradient">avant qu’elles n’atteignent</span> votre navigateur.
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+            ScamRadar détecte les sites frauduleux, les faux messages bancaires et les boutiques de phishing pour protéger votre navigation en temps réel.
+          </p>
+
+          <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a href="#download" class="btn-primary inline-flex items-center gap-3 rounded-xl px-8 py-4 text-lg font-bold text-white">
+              <i data-lucide="download" class="h-5 w-5"></i>
+              Télécharger l’extension
+            </a>
+            <a href="#how" class="inline-flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-900/60 px-8 py-4 text-lg font-semibold text-slate-200">
+              <i data-lucide="play-circle" class="h-5 w-5 text-sky-400"></i>
+              Voir le fonctionnement
+            </a>
+          </div>
+        </div>
+
+        <div class="glass relative mx-auto mt-16 max-w-5xl rounded-3xl p-3 shadow-2xl shadow-sky-950/40">
+          <div class="flex items-center justify-between rounded-t-2xl border-b border-slate-800 bg-slate-950/90 px-4 py-3 text-xs text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="h-3 w-3 rounded-full bg-red-500"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-500"></span>
+              <span class="h-3 w-3 rounded-full bg-green-500"></span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 px-4 py-1.5 font-mono text-slate-300">
+              <i data-lucide="lock" class="h-3.5 w-3.5 text-emerald-400"></i>
+              secure-bank.example
+            </div>
+            <div class="w-8"></div>
+          </div>
+
+          <div class="rounded-b-2xl bg-slate-900/80 p-8 md:flex md:items-center md:justify-between md:gap-8">
+            <div class="space-y-4 text-left">
+              <span class="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+                <i data-lucide="shield-check" class="h-4 w-4"></i>
+                Site vérifié et sécurisé
+              </span>
+              <h2 class="text-2xl font-bold text-white">ScamRadar surveille activement votre navigateur.</h2>
+              <p class="max-w-xl text-sm text-slate-400">
+                Aucune anomalie détectée sur cette page. Le système compare le domaine avec des signatures de phishing et de fraude courantes.
+              </p>
+            </div>
+
+            <div class="mt-8 rounded-2xl border border-slate-700 bg-slate-950/70 p-6 text-center md:mt-0 md:min-w-[220px]">
+              <div class="text-4xl font-black text-sky-400">1,284</div>
+              <div class="mt-2 text-xs uppercase tracking-[0.2em] text-slate-400">Menaces bloquées</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stats" class="border-y border-slate-800/80 bg-slate-950/60">
+        <div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-12 md:grid-cols-4">
+          <div class="text-center">
+            <div class="text-3xl font-black text-white md:text-4xl">99.8%</div>
+            <div class="mt-2 text-sm text-slate-400">Détection du phishing</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-sky-400 md:text-4xl">0.2s</div>
+            <div class="mt-2 text-sm text-slate-400">Analyse moyenne</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-white md:text-4xl">+50K</div>
+            <div class="mt-2 text-sm text-slate-400">Sites signalés</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-sky-400 md:text-4xl">100%</div>
+            <div class="mt-2 text-sm text-slate-400">Respect de la vie privée</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="mx-auto max-w-7xl px-6 py-24">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="text-3xl font-black text-white md:text-5xl">Une protection complète pour chaque navigation</h2>
+          <p class="mt-4 text-lg text-slate-400">Tout est conçu pour être discret, rapide et fiable sans ralentir votre expérience.</p>
+        </div>
+
+        <div class="mt-14 grid gap-8 md:grid-cols-3">
+          <article class="glass rounded-2xl p-7">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400">
+              <i data-lucide="shield-alert" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Anti-phishing</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Détection rapide des faux sites bancaires, messages trompeurs et copies de pages connues.
+            </p>
+          </article>
+
+          <article class="glass rounded-2xl p-7">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400">
+              <i data-lucide="shopping-cart" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Faux magasins</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Alerte immédiate sur les boutiques frauduleuses qui cherchent à voler vos informations de paiement.
+            </p>
+          </article>
+
+          <article class="glass rounded-2xl p-7">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400">
+              <i data-lucide="user-check" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Confidentialité</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Aucune donnée de navigation n’est collectée ni vendue. La protection reste locale et respectueuse.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how" class="border-t border-slate-800/80 bg-slate-950/60 py-24">
+        <div class="mx-auto max-w-7xl px-6">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-black text-white md:text-4xl">Comment installer ScamRadar</h2>
+            <p class="mt-4 text-slate-400">En quelques minutes seulement, votre navigateur devient plus sûr.</p>
+          </div>
+
+          <div class="mt-14 grid gap-8 md:grid-cols-3">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+              <div class="mb-4 text-5xl font-black text-sky-500/30">01</div>
+              <h3 class="text-lg font-bold text-white">Téléchargez l’extension</h3>
+              <p class="mt-3 text-sm text-slate-400">Récupérez la version de test pour Chrome ou Edge depuis cette page.</p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+              <div class="mb-4 text-5xl font-black text-sky-500/30">02</div>
+              <h3 class="text-lg font-bold text-white">Activez le mode développeur</h3>
+              <p class="mt-3 text-sm text-slate-400">Ouvrez chrome://extensions puis activez le chargement d’extensions non empaquetées.</p>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+              <div class="mb-4 text-5xl font-black text-sky-500/30">03</div>
+              <h3 class="text-lg font-bold text-white">Chargez la version locale</h3>
+              <p class="mt-3 text-sm text-slate-400">Sélectionnez le dossier du projet et laissez l’extension s’activer dans votre navigateur.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="mx-auto max-w-5xl px-6 py-24">
+        <div class="text-center">
+          <h2 class="text-3xl font-black text-white md:text-4xl">Questions fréquentes</h2>
+        </div>
+
+        <div class="mt-12 space-y-5">
+          <div class="glass rounded-2xl p-5">
+            <h3 class="text-lg font-semibold text-white">ScamRadar protège-t-il tous les sites ?</h3>
+            <p class="mt-2 text-slate-400">Il analyse les pages et signale les domaines connus pour le phishing ou les contenus suspects.</p>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <h3 class="text-lg font-semibold text-white">Quelles données sont collectées ?</h3>
+            <p class="mt-2 text-slate-400">Seulement les informations nécessaires pour vérifier l’URL active et afficher le statut de sécurité.</p>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <h3 class="text-lg font-semibold text-white">L’extension ralentit-elle mon navigateur ?</h3>
+            <p class="mt-2 text-slate-400">Non. Le contrôle est léger et se fait en arrière-plan avec un temps de traitement quasi instantané.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="mx-auto max-w-5xl px-6 pb-24">
+        <div class="glass rounded-3xl border border-sky-500/20 p-10 text-center shadow-xl shadow-sky-500/10">
+          <h2 class="text-3xl font-black text-white md:text-5xl">Prêt à sécuriser votre navigation ?</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-slate-300">
+            Installez et activez ScamRadar pour renforcer votre protection contre les arnaques sur le web.
+          </p>
+          <a href="#" class="btn-primary mt-8 inline-flex items-center gap-3 rounded-xl px-8 py-4 text-lg font-bold text-white">
+            <i data-lucide="download" class="h-5 w-5"></i>
+            Télécharger l’extension
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-10">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm text-slate-500 md:flex-row">
+        <div class="flex items-center gap-2 font-bold text-slate-300">
+          <i data-lucide="shield-alert" class="h-4 w-4 text-sky-400"></i>
+          ScamRadar
+        </div>
+        <p>© 2026 ScamRadar. Tous droits réservés.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-300">Mentions légales</a>
+          <a href="#" class="hover:text-slate-300">Confidentialité</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

@@ -13,7 +13,32 @@ const suspiciousKeywords = [
   'verify-account',
   'winner-2026',
   'crypto-giveaway',
-  'secure-your-wallet'
+  'secure-your-wallet',
+  'free-coin',
+  'giveaway',
+  'claim-reward',
+  'security-update',
+  'verify-your-account',
+  'bonus',
+  'reward',
+  'limited-offer',
+  'double-your-money',
+  'account-security',
+  'cashback',
+  'robux',
+  'altbot',
+  'win-prize',
+  'prize',
+  'claim',
+  'verify',
+  'wallet'
+];
+
+const suspiciousHostPatterns = [
+  /free.*(robux|coin|gift|reward|bonus)/i,
+  /(giveaway|claim|winner|reward|verify|security|secure|wallet|cashback|promo|bonus|crypto)/i,
+  /(xyz|top|club|site|info|buzz|click|online|live|vip|ml|ga|tk|bid|loan)/i,
+  /altbot|robux|prize|verify-account|security-update/i
 ];
 
 function analyzeUrl(url) {
@@ -34,11 +59,15 @@ function analyzeUrl(url) {
       };
     }
 
-    if (suspiciousKeywords.some(keyword => fullPath.includes(keyword))) {
+    const keywordMatch = suspiciousKeywords.some(keyword => fullPath.includes(keyword));
+    const hostPatternMatch = suspiciousHostPatterns.some(pattern => pattern.test(hostname));
+    const suspiciousTld = /\.(xyz|top|club|online|site|info|buzz|click|best|vip)$/i.test(hostname);
+
+    if (keywordMatch || hostPatternMatch || suspiciousTld) {
       return {
         safe: false,
         label: 'Signalement de phishing',
-        detail: 'Le domaine ou l’URL contient des éléments typiques d’arnaque.'
+        detail: 'Le domaine ou l’URL contient des éléments typiques d’arnaque ou d’hameçonnage.'
       };
     }
 
